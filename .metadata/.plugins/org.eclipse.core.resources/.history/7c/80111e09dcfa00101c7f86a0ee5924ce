@@ -1,0 +1,50 @@
+package publicSafety;
+
+/**
+ * Station class
+ * Represents a detective station that exists within a PublicSafety instance. The class's responsibility is
+ * to manages at most 5 detectives per station instance.
+ * @author Strydr Silverberg
+ * @author Kale Carlson
+ * @date 1/25/26
+ */
+
+public class Station {
+	//Station class constructor
+	public Station(String stationName) {
+		super();
+		this.STATION_NAME = stationName;
+		detectives = new Detective[MAX_DETECTIVES];
+	}
+
+	private static final int MAX_DETECTIVES = 5;
+	private String STATION_NAME = new String();
+	
+	Detective[] detectives;
+	
+	@Override 
+	public String toString() {
+		String detectivesToString = new String();
+		
+		detectivesToString = "List of detectives for " + this.STATION_NAME + "\n";
+		//if a station has no detectives, it hasn't been created yet 
+		if(this.detectives[0] == null) {
+			return "Printing All Detectives\n" + "List of detectives for + " + this.STATION_NAME +"\n";
+		}
+		
+		String temp = new String();
+		
+		for(int i = 0; i < this.detectives.length; i++) {
+			if(this.detectives[i] != null) { 
+				temp += "Detective [Badge=" + this.detectives[i].getBadgeNumber() + ", Name=" + this.detectives[i].getName() + "]\n";
+			}
+		}
+		
+		return detectivesToString + temp;
+	}
+
+	public String getSTATION_NAME() {
+		return STATION_NAME;
+	}
+
+}

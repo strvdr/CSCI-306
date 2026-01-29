@@ -1,0 +1,37 @@
+package publicSafety;
+
+public class Detective {
+
+	public Detective(String name) {
+		super();
+		this.name = name;
+		this.badgeNumber = 0;
+	}
+
+	private String name;
+	private int badgeNumber;
+	
+	public static void main(String[] args) {
+
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public int getBadgeNumber() {
+		return badgeNumber;
+	}
+
+	public void setBadgeNumber(int badgeNumber) {
+		if(this != null) {
+			this.badgeNumber = badgeNumber;
+		}
+	}
+	
+	@Override
+	public String toString() {
+		return this.name;
+	}
+
+}

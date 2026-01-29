@@ -1,0 +1,10 @@
+package publicSafety;
+
+public class PublicSafety {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

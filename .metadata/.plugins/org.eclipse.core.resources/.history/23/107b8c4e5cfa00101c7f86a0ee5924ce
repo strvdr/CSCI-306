@@ -1,0 +1,23 @@
+import java.util.Scanner;
+package publicSafety;
+
+public class PublicSafety {
+	private Station universityStation = new Station();
+	private Station cityStation = new Station();
+	
+	public PublicSafety() {
+		super();
+	}
+	
+	private void issueHiringOrders(Station stationName) {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("New hire for" + stationName.getSTATION_NAME());
+		String newDetectiveName = scanner.nextLine();
+	}
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

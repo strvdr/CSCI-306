@@ -1,0 +1,16 @@
+public class CompSciMajor extends Person {
+
+	public CompSciMajor() {
+		super(occupation, myName);
+	}
+	
+	public void askQuestion(){
+		
+	}
+	
+	
+	public void answerQuestion(){
+		
+	}
+
+}

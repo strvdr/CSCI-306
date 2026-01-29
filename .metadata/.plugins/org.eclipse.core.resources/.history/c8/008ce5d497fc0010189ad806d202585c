@@ -1,0 +1,40 @@
+import java.util.Random;
+
+public class CompSciMajor extends Person {
+
+	public CompSciMajor(String name, String occupation) {
+		super(name, occupation);
+	}
+	
+	public void askQuestion(){
+		Random random = new Random();
+		int questions = 6;
+		int randInt = random.nextInt(questions);
+		
+		switch(randInt) {
+			case 1:	
+				break;
+			case 2:	
+				break;
+			case 3:	
+				break;
+			case 4:	
+				break;	
+			case 5:	
+				break;
+			case 6:	
+				break;
+		}
+	}
+	
+	
+	public void answerQuestion(){
+		
+	}
+
+	@override
+	public void whatIDo() {
+		super.whatIDo();
+		System.out.println("I'm going to graduate in 2 years!'");
+	}
+}

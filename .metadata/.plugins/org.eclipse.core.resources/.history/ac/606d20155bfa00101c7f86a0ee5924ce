@@ -1,0 +1,15 @@
+package publicSafety;
+
+public class PublicSafety {
+	private Sation universityStation = new Sation();
+	
+	public PublicSafety() {
+		super();
+	}
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

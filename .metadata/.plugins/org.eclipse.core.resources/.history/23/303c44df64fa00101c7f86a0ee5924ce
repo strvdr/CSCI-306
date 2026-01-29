@@ -1,0 +1,54 @@
+package publicSafety;
+
+import java.util.Objects;
+
+public class Station {
+
+	public Station(String stationName) {
+		super();
+		this.STATION_NAME = stationName;
+		detectives = new Detective[MAX_DETECTIVES];
+	}
+	
+	public Station() {
+		super();
+		this.STATION_NAME = "";
+		detectives = new Detective[MAX_DETECTIVES];
+	}
+
+	private static final int MAX_DETECTIVES = 5;
+	private String STATION_NAME = new String();
+	
+	
+	Detective[] detectives;
+	
+	
+	@Override 
+	public String toString() {
+		String detectivesToString = new String();
+		detectivesToString = "List of detectives for " + this.STATION_NAME + "\n";
+		if(this.detectives[0] == null)) {
+			return "Printing All Detectives\n" + "List of detectives for NULL STATION\n";
+		}
+		
+		String temp = new String();
+		for(int i = 0; i < this.detectives.length; i++) {
+			temp += "Detective [Badge=" + this.detectives[i].getBadgeNumber() + ", Name=" + this.detectives[i].getName() + "]\n";
+		}
+		return detectivesToString + temp;
+	}
+	
+	public static void main(String[] args) {
+		Station newStation = new Station();
+		System.out.println(newStation);
+	}
+
+	public String getSTATION_NAME() {
+		return STATION_NAME;
+	}
+	
+	public void addDetective(Detective detective) {
+		
+	}
+
+}

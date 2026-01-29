@@ -1,0 +1,37 @@
+/**
+ * Proffesor class
+ *  
+ * @author Stryder Silverberg
+ * @author Kale Carlson
+ * 
+ * Date: 1/28/2026
+ * Purpose: Represents a Professor, which is a child of a Person.
+ */
+
+public class Professor extends Person {
+
+	private String mySubject;
+	
+	//Subject is unique to each professor and is used in their whatIDo method
+	public Professor(String name, String occupation, String subject) {
+		super(name, occupation);
+		mySubject = subject;
+	}
+	
+	public void answerQuestion(){
+		System.out.println("Please see me after class.");
+	}
+	
+	
+	public void askQuestion(){	
+		System.out.println("Did you finish your homework?");
+	}
+
+	//Prints the original function from the parent class Person and adds a
+	//unique only for professors
+	@Override
+	public void whatIDo() {
+		super.whatIDo();
+		System.out.println("I have my PHD in advanced quantum super " + mySubject);
+	}
+}

@@ -1,0 +1,53 @@
+public class Mascot extends Person{
+
+ 	private String mySchool;
+	private String mascotType;
+	private int questionNumber = 0;
+	private int answerNumber = 0;
+	
+	public Mascot(String name, String occupation, String school, String animal) {
+		super(name, occupation);
+		mySchool = school;
+		mascotType = animal;
+	}
+	
+	private String[] questions = {
+		"What's your favorite " + mascotType + "?",
+		"What school do you go to?",
+		"You think you could beat me in an arm wrestling match?",
+		"Have you been studying?",
+		"How many people do you think wore this suit before me?",
+	};
+	
+	private String[] answers = {
+		"You should tour " + mySchool + "!",
+		"It's sweaty in this suit'",
+		"I'm the mascot for " + mySchool + "!",
+		"GET ON THE FIELD!",
+		"",
+		"Question 2"
+
+	};
+	
+	public void answerQuestion() {
+		System.out.println(answers[answerNumber]);
+		answerNumber++;
+		if(answerNumber > answers.length){
+			answerNumber = 0;
+		}
+	}
+	
+	
+	public void askQuestion() {	
+		System.out.println(questions[questionNumber]);
+		questionNumber++;
+		if(questionNumber > questions.length){
+			questionNumber = 0;
+		}
+	}
+	
+	@Override
+	public void whatIDo() {
+		System.out.println("I do some " + this.getOccupation() + " things!");
+	}
+}

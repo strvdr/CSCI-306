@@ -1,0 +1,70 @@
+package publicSafety;
+import java.util.Scanner;
+
+/**
+ * PublicSafety class
+ * Represents an entity that oversees two stations, one city station and one university station.
+ * Class's responsibility is to manage stations stations contained within it and maintain information
+ * about global badge numbers and their relations.
+ * @author Strydr Silverberg
+ * @author Kale Carlson
+ * @date 1/25/26
+ */
+
+public class PublicSafety {
+	private Station universityStation;
+	private Station cityStation;
+	private static int currentBadgeNumber;
+	
+	public PublicSafety() {
+		super();
+	}
+	
+	public PublicSafety(String universityStationName, String cityStationName) {
+		super();
+		this.cityStation = new Station(cityStationName);
+		this.universityStation= new Station(universityStationName);	
+	}
+
+	public void doHire(boolean cityOrUniversity) { 
+		// true is city hire
+		if(cityOrUniversity) {
+			issueHiringOrders(this.cityStation);
+		} else {	
+			issueHiringOrders(this.universityStation);
+		}
+	}
+	
+	//helper function for doHire. takes input of a Station and adds a detective to the issued station.
+	private void issueHiringOrders(Station stationName) {
+		Scanner scanner = new Scanner(System.in);	
+		if(stationName.detectives[4] != null) {
+			System.out.println("Can't hire any more detectives for " + stationName.getSTATION_NAME());
+			return;
+		}
+		
+		System.out.print("New hire for " + stationName.getSTATION_NAME() + "...Enter detective's name: ");
+		String newDetectiveName = scanner.nextLine(); 
+		for(int i = 0; i < stationName.detectives.length; i++) { 
+			if(stationName.detectives[i] == null) {
+				stationName.detectives[i] = new Detective(newDetectiveName);
+				this.currentBadgeNumber += 1;
+				stationName.detectives[i].setBadgeNumber(this.currentBadgeNumber);
+				break;
+			}
+		}
+		
+		scanner.close();
+	}
+
+	public void printDetectiveLists() {
+		System.out.println(cityStation);
+		System.out.println(universityStation);
+	}
+
+	public static int getCurrentBadgeNumber() {
+		currentBadgeNumber++;
+		return currentBadgeNumber;
+	}
+
+}

@@ -1,0 +1,78 @@
+/**
+ * Party class. 
+ *  
+ * @author Mark Baldwin
+ * @author Cyndi Rader
+ * 
+ * Purpose: Illustrate use of abstract classes
+ */
+
+import java.util.Random;
+
+public class CompSciMajor extends Person {
+
+	public CompSciMajor(String name, String occupation) {
+		super(name, occupation);
+	}
+	
+	public void answerQuestion(){
+		Random random = new Random();
+		int answers = 6;
+		int randInt = random.nextInt(answers);
+		
+		switch(randInt) {
+			case 1:	
+				System.out.println("I love Computer Science!");
+				break;
+			case 2:	
+				System.out.println("Binary is cool!");
+				break;
+			case 3:				
+				System.out.println("I like coding in Java! (not really)");
+				break;
+			case 4:				
+				System.out.println("1010110111101");
+				break;	
+			case 5:				
+				System.out.println("Runs on my machine.");
+				break;
+			case 6:				
+				System.out.println("All your base are beling to us.");
+				break;
+		}
+	}
+	
+	
+	public void askQuestion(){
+		Random random = new Random();
+		int questions = 6;
+		int randInt = random.nextInt(questions);
+		
+		switch(randInt) {
+			case 1:	
+				System.out.println("Did you understand that lecture?");
+				break;
+			case 2:	
+				System.out.println("Where's my next class?");
+				break;
+			case 3:				
+				System.out.println("Do you know where Coolbaugh 201 is?");
+				break;
+			case 4:				
+				System.out.println("1010110111101?");
+				break;	
+			case 5:				
+				System.out.println("How many bits are in a byte?");
+				break;
+			case 6:				
+				System.out.println("How many bytes is a ULL?");
+				break;
+		}	
+	}
+
+	@Override
+	public void whatIDo() {
+		super.whatIDo();
+		System.out.println("I'm going to graduate in 2 years!");
+	}
+}
