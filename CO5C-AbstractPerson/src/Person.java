@@ -6,7 +6,7 @@
  * 
  * Date: 1/28/2026
  * Purpose: Abstract Person class is the parent of Mascot, CompSciMajor, and Professor. These children inherit
- * common behavior between themselves from 
+ * common behavior between themselves from the Parent, namely whatIDo(), askName(), and giveName(). 
  */
 
 public abstract class Person {
