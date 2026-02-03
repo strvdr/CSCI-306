@@ -76,16 +76,28 @@ public class Burner {
 		timer = timer - 1;
 		if(timer == 0) {
 			switch(this.myTemperature) {
-				case COLD:				
+				case COLD:	
+					if(this.mySetting == Setting.OFF) {
+						break;
+					}
 					this.myTemperature = temperature.WARM;
+					timer = TIME_DURATION;
 					break;
 				case WARM:					
-					this.myTemperature = temperature.HOT;
+					if(this.mySetting == Setting.LOW) {
+						break;
+					}
+					this.myTemperature = temperature.HOT;				
+					timer = TIME_DURATION;
 					break;
 				case HOT:						
-					this.myTemperature = temperature.BLAZING;
+					if(this.mySetting == Setting.MEDIUM) {
+						break;
+					}
+					this.myTemperature = temperature.BLAZING;				
+					timer = TIME_DURATION;
 					break;
-				case BLAZING:		
+				case BLAZING:						
 					break;
 			}	
 		}
