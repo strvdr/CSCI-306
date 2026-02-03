@@ -84,20 +84,32 @@ public class Burner {
 					timer = TIME_DURATION;
 					break;
 				case WARM:					
-					if(this.mySetting == Setting.LOW) {
+					if(this.mySetting == Setting.LOW || this.mySetting == Setting.OFF) {
+						if(this.mySetting == Setting.OFF) {
+							this.myTemperature = temperature.COLD;
+							timer = TIME_DURATION;
+						}
 						break;
 					}
 					this.myTemperature = temperature.HOT;				
 					timer = TIME_DURATION;
 					break;
 				case HOT:						
-					if(this.mySetting == Setting.MEDIUM) {
+					if(this.mySetting == Setting.MEDIUM || this.mySetting == Setting.LOW || this.mySetting == Setting.OFF) {
+						if(this.mySetting == Setting.OFF || this.mySetting == Setting.LOW) {
+							this.myTemperature = temperature.WARM;
+							timer = TIME_DURATION;
+						}
 						break;
 					}
 					this.myTemperature = temperature.BLAZING;				
 					timer = TIME_DURATION;
 					break;
 				case BLAZING:						
+					if(this.mySetting == Setting.MEDIUM || this.mySetting == Setting.LOW || this.mySetting == Setting.OFF) {
+						this.myTemperature = temperature.HOT;
+						timer = TIME_DURATION;
+					}
 					break;
 			}	
 		}
