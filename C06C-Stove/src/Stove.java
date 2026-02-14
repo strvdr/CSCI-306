@@ -3,9 +3,10 @@ import java.util.ArrayList;
 /**
  * Stove class. 
  *  
- * @author Mark Baldwin
- * @author Cyndi Rader
+ * @author Kale Carlson
+ * @author Strydr Silverberg
  * 
+ * 2/2/2026
  * Purpose: Simulates a stove
  */
 public class Stove {
