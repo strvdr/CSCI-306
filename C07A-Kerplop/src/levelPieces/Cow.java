@@ -9,21 +9,20 @@ import gameEngine.Player;
  * @author Strydr Silverberg
  * @author Kale Carlson
  *
- * Purpose: defining the Creeper class and it's behaviour
+ * Purpose: defining the cow class and it's behaviour
  */
-public class Creeper extends GamePiece {
+public class Cow extends GamePiece {
 
-	public static final int DAMAGE = 2;
-	private String label = "damages within 2 spaces, kills within 1";
+	private String label = "Land on cow to advance to collect a point";
 	private int location;
-	private char symbol = 'C';
+	private char symbol = 'M';
 	private boolean interactable = true;
 	
-	public Creeper(char symbol, String label, int location, boolean interactable) {
+	public Cow(char symbol, String label, int location, boolean interactable) {
 		super(symbol, label, location, interactable);
 	}
 	
-	public Creeper() {
+	public Cow() {
 	}
 
 	public int getLocation() {
@@ -42,11 +41,14 @@ public class Creeper extends GamePiece {
 		System.out.print(symbol);
 	}
 	
-	//if creeper is 1 space away from player kill player
+	
+	// if cow and player are overlapping, add a point to player's counter
 	@Override
 	public InteractionResult interact(Drawable[] gameBoard, int playerLocation) {
-		if (playerLocation == this.getLocation() - 1 || playerLocation == this.getLocation() + 1){
-			return InteractionResult.KILL;
+		if( playerLocation == this.getLocation()){
+			gameBoard[this.getLocation()] = null;
+			System.out.println("moo");
+			return InteractionResult.GET_POINT;
 		}
 		return InteractionResult.NONE;
 	}

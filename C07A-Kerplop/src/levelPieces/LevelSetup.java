@@ -1,5 +1,6 @@
 package levelPieces;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
 import gameEngine.Drawable;
@@ -8,25 +9,63 @@ import gameEngine.Moveable;
 
 
 public class LevelSetup implements Drawable {
-	private Drawable[] board = new Drawable[20];
+	private Drawable[] board = new Drawable[gameEngine.GameEngine.BOARD_SIZE];
 	private ArrayList<Moveable> movers = new ArrayList<Moveable>();
 	private ArrayList<GamePiece> pieces = new ArrayList<GamePiece>(7);
-	//private GamePiece[] pieces = {new Creeper(), new Enderman(), new Villager(), new Zombie(), new Skeleton(), new Diamond(), new Cow()};
 	private ArrayList<GamePiece> interactingPieces = new ArrayList<GamePiece>();
 	
 	public LevelSetup() {
-		
 	}
 
+	// adds all pieces for a given level, pieces chosen and their locations are determined by a set seed.
 	public void createLevel(int num) {
+		if(!pieces.isEmpty()){
+			Arrays.fill(board, null);
+			pieces.clear();
+		}
+		
+		Random random = new Random(0x000A55 << num);
+		
+		board[random.nextInt(board.length)] = new Villager();
+		
+		pieces.add(new Cow());
 		pieces.add(new Creeper());
-		Random random = new Random(0xDEADBEEF * num);
+		pieces.add(new Skeleton());
+		pieces.add(new Zombie());
+		pieces.add(new Enderman());
+		pieces.add(new Cow());
+		pieces.add(new Diamond());
+		
+		this.initialPrint(pieces);
+		
 		for(GamePiece piece: pieces) {
-			int randomNum = random.nextInt(20);
-			if(board[randomNum] == null) { 
-				board[randomNum] = piece;
-				piece.setLocation(randomNum);
+			
+			// add moveable pieces to movers ArrayList
+			if(piece instanceof Moveable){
+				movers.add((Moveable) piece);
 			}
+			
+			// add interactable pieces to interacting pieces ArrayList
+			if(piece.getInteractable() != false) {
+				interactingPieces.add(piece);
+			}
+			
+			boolean filled = false;
+			while(!filled){
+				int randomNum = random.nextInt(20);
+				if(board[randomNum] == null) { 
+					board[randomNum] = piece;
+					piece.setLocation(randomNum);
+					filled = !filled;
+				}
+			}
+		}
+	}
+	
+	// prints symbol and labels for each game piece
+	private void initialPrint(ArrayList<GamePiece> pieces) {
+		for(GamePiece piece: pieces) {
+			System.out.println(piece.toString());
 		}
 	}
 	
@@ -35,20 +74,10 @@ public class LevelSetup implements Drawable {
 	}
 	
 	public ArrayList<Moveable> getMovingPieces() {
-		for(GamePiece piece : pieces) { 
-			if(piece instanceof Moveable) {
-				movers.add((Moveable) piece);
-			}
-		}
 		return movers;
 	}
 	
 	public ArrayList<GamePiece> getInteractingPieces() {
-		for(GamePiece piece : pieces) { 
-			if(piece.getInteractable() != false) {
-				interactingPieces.add(piece);
-			}
-		}
 		return interactingPieces;
 
 	}
@@ -56,13 +85,8 @@ public class LevelSetup implements Drawable {
 	public void draw() {
 	}
 	
+	//determines a random starting location for player
 	public int getPlayerStartLoc() {
 		return board.length / 2;
 	}
-	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
-
 }
