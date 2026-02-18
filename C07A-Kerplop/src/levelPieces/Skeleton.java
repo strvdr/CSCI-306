@@ -2,28 +2,29 @@ package levelPieces;
 
 import gameEngine.Drawable;
 import gameEngine.InteractionResult;
-import gameEngine.Player;
+import java.util.Random;
+
 /**
  * 
  *  *  * 
  * @author Strydr Silverberg
  * @author Kale Carlson
  *
- * Purpose: defining the Creeper class and it's behaviour
+ * Purpose: defining the Skeleton class and it's behaviour
  */
-public class Creeper extends GamePiece {
+public class Skeleton extends GamePiece {
 
-	public static final int DAMAGE = 2;
-	private String label = "damages within 2 spaces, kills within 1";
+	public static final int DAMAGE = 1;
+	private String label = "can shoot you from range(2 spots), doesn't shoot if you're close";
 	private int location;
-	private char symbol = 'C';
+	private char symbol = 'S';
 	private boolean interactable = true;
 	
-	public Creeper(char symbol, String label, int location, boolean interactable) {
+	public Skeleton(char symbol, String label, int location, boolean interactable) {
 		super(symbol, label, location, interactable);
 	}
 	
-	public Creeper() {
+	public Skeleton() {
 	}
 
 	public int getLocation() {
@@ -42,12 +43,15 @@ public class Creeper extends GamePiece {
 		System.out.print(symbol);
 	}
 	
-	//if creeper is 1 space away from player kill player
+	// if player is 2 spaces away from skeleton, take damage
 	@Override
 	public InteractionResult interact(Drawable[] gameBoard, int playerLocation) {
-		if (playerLocation == this.getLocation() - 1 || playerLocation == this.getLocation() + 1){
-			return InteractionResult.KILL;
-		}
+		Random random = new Random();
+		if(playerLocation == this.getLocation() + 3 || playerLocation == this.getLocation() - 3){
+			if(random.nextInt(2) > 1) {
+			return InteractionResult.HIT;
+			}
+		} 
 		return InteractionResult.NONE;
 	}
 	
