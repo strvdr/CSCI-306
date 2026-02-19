@@ -25,6 +25,10 @@ public class Enderman extends GamePiece implements Moveable{
 	public Enderman() {
 		super('E', "teleports to a random location on the board", 0, true);
 	}
+	
+	public Enderman(int location) {
+		super('E', "teleports to a random location on the board and hits on spaces adjacent to it", location, true);
+	}
 
 	@Override
 	public void draw() {
@@ -33,16 +37,18 @@ public class Enderman extends GamePiece implements Moveable{
 	
 	// teleport the enderman to a random location on the board
 	public void move(Drawable[] gameBoard, int playerLocation) {
-		int nextMove = random.nextInt(GameEngine.BOARD_SIZE);;
+		int nextMove;
 		int attempts = 0;
-		while(attempts <= GameEngine.BOARD_SIZE && gameBoard[nextMove] != null) {
+		do {	
 			nextMove = random.nextInt(GameEngine.BOARD_SIZE);
 			attempts++;
-		}
+		} while(attempts <= GameEngine.BOARD_SIZE && (gameBoard[nextMove] != null || nextMove == playerLocation));
 		
-		gameBoard[this.getLocation()] = null;
-		this.setLocation(nextMove);
-		gameBoard[nextMove] = this;
+		if(attempts <= GameEngine.BOARD_SIZE){
+			gameBoard[this.getLocation()] = null;
+			this.setLocation(nextMove);
+			gameBoard[nextMove] = this;
+		}
 	}
 	
 	//if player is to the left or right of enderman, take damage

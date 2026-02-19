@@ -22,6 +22,10 @@ public class Zombie extends GamePiece implements Moveable{
 	public Zombie() {
 		super('Z', "can only move left, will hit you if you land on him", 0, true);
 	}
+	
+	public Zombie(int location) {
+		super('Z', "can only move left, will hit you if you land on him", location, true);
+	}
 
 	@Override
 	public void draw() {

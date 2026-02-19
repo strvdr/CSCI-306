@@ -20,6 +20,11 @@ public class Cow extends GamePiece {
 	public Cow() {	
 		super('M', "Land on cow to collect a point", 0, true);
 	}
+	
+	public Cow(int location) {	
+		super('M', "Land on cow to collect a point", location, true);
+	}
+
 
 	@Override
 	public void draw() {

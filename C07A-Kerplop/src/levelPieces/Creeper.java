@@ -20,6 +20,10 @@ public class Creeper extends GamePiece {
 	public Creeper() {
 		super('C', "Damages within two spaces, kills within 1", 0, true);
 	}
+	
+	public Creeper(int location) {
+		super('C', "Damages within two spaces, kills within 1", location, true);
+	}
 
 	@Override
 	public void draw() {

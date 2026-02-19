@@ -21,6 +21,10 @@ public class Diamond extends GamePiece {
 	public Diamond() {
 		super('D', "Land on the diamond to advance to next level", 0, true);
 	}
+	
+	public Diamond(int location) {
+		super('D', "Land on the diamond to advance to next level", location, true);
+	}
 
 	@Override
 	public void draw() {

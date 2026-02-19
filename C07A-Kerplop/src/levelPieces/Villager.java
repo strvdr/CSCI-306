@@ -20,6 +20,11 @@ public class Villager implements Drawable {
 	
 	public Villager() {
 	}
+	
+	public Villager(int location) {
+		setLocation(location);
+	}
+
 
 	public int getLocation() {
 		return location;

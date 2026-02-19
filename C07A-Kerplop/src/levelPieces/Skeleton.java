@@ -21,6 +21,10 @@ public class Skeleton extends GamePiece {
 	public Skeleton() {
 		super('S', "Can shoot you from range(2 spots), doesn't shoot if you're close", 0, true);
 	}
+	
+	public Skeleton(int location) {
+		super('S', "Can shoot you from range(2 spots), doesn't shoot if you're close", location, true);
+	}
 
 	@Override
 	public void draw() {
