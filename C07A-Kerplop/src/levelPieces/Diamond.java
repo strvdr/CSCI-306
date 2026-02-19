@@ -14,29 +14,14 @@ import gameEngine.Player;
  */
 public class Diamond extends GamePiece {
 
-	private String label = "Land on diamond to advance to next level";
-	private int location;
-	private char symbol = 'D';
-	private boolean interactable = true;
-	
 	public Diamond(char symbol, String label, int location, boolean interactable) {
 		super(symbol, label, location, interactable);
 	}
 	
 	public Diamond() {
+		super('D', "Land on the diamond to advance to next level", 0, true);
 	}
 
-	public int getLocation() {
-		return location;
-	}
-
-	public void setLocation(int setLocation) {
-		location = setLocation;
-	}
-	
-	public boolean getInteractable() { 
-		return interactable;
-	}
 	@Override
 	public void draw() {
 		System.out.print(symbol);
@@ -53,6 +38,6 @@ public class Diamond extends GamePiece {
 	
 	@Override
 	public String toString() {
-		return symbol + " - " + label ; 
+		return 'D' + " - Land on the diamond to advance to next level";
 	}
 }

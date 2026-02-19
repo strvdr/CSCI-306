@@ -13,32 +13,17 @@ import gameEngine.Player;
  */
 public class Cow extends GamePiece {
 
-	private String label = "Land on cow to advance to collect a point";
-	private int location;
-	private char symbol = 'M';
-	private boolean interactable = true;
-	
 	public Cow(char symbol, String label, int location, boolean interactable) {
 		super(symbol, label, location, interactable);
 	}
 	
-	public Cow() {
+	public Cow() {	
+		super('M', "Land on cow to collect a point", 0, true);
 	}
 
-	public int getLocation() {
-		return location;
-	}
-
-	public void setLocation(int setLocation) {
-		location = setLocation;
-	}
-	
-	public boolean getInteractable() { 
-		return interactable;
-	}
 	@Override
 	public void draw() {
-		System.out.print(symbol);
+		System.out.print('M');
 	}
 	
 	
@@ -55,6 +40,6 @@ public class Cow extends GamePiece {
 	
 	@Override
 	public String toString() {
-		return symbol + " - " + label ; 
+		return 'M' + " - Land on cow to collect a point"; 
 	}
 }
