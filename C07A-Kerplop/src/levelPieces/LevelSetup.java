@@ -22,9 +22,11 @@ public class LevelSetup implements Drawable {
 		if(!pieces.isEmpty()){
 			Arrays.fill(board, null);
 			pieces.clear();
+			movers.clear();
+			interactingPieces.clear();
 		}
 		
-		Random random = new Random(0x000A55 << num);
+		Random random = new Random(0xFACADE << num);
 		
 		board[random.nextInt(board.length)] = new Villager();
 		

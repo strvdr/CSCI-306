@@ -14,41 +14,25 @@ import java.util.Random;
  */
 public class Skeleton extends GamePiece {
 
-	public static final int DAMAGE = 1;
-	private String label = "can shoot you from range(2 spots), doesn't shoot if you're close";
-	private int location;
-	private char symbol = 'S';
-	private boolean interactable = true;
-	
 	public Skeleton(char symbol, String label, int location, boolean interactable) {
 		super(symbol, label, location, interactable);
 	}
 	
 	public Skeleton() {
+		super('S', "Can shoot you from range(2 spots), doesn't shoot if you're close", 0, true);
 	}
 
-	public int getLocation() {
-		return location;
-	}
-
-	public void setLocation(int setLocation) {
-		location = setLocation;
-	}
-	
-	public boolean getInteractable() { 
-		return interactable;
-	}
 	@Override
 	public void draw() {
 		System.out.print(symbol);
 	}
 	
-	// if player is 2 spaces away from skeleton, take damage
+	// if player is 2 spaces away from skeleton, take damage (might miss though)
 	@Override
 	public InteractionResult interact(Drawable[] gameBoard, int playerLocation) {
 		Random random = new Random();
 		if(playerLocation == this.getLocation() + 3 || playerLocation == this.getLocation() - 3){
-			if(random.nextInt(2) > 1) {
+			if(random.nextInt(2) == 0) {
 			return InteractionResult.HIT;
 			}
 		} 
@@ -57,6 +41,6 @@ public class Skeleton extends GamePiece {
 	
 	@Override
 	public String toString() {
-		return symbol + " - " + label ; 
+		return 'S' + " - Can shoot you from range(2 spots), doesn't shoot if you're close"; 
 	}
 }

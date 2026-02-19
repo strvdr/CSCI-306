@@ -13,30 +13,14 @@ import gameEngine.Player;
  */
 public class Creeper extends GamePiece {
 
-	public static final int DAMAGE = 2;
-	private String label = "damages within 2 spaces, kills within 1";
-	private int location;
-	private char symbol = 'C';
-	private boolean interactable = true;
-	
 	public Creeper(char symbol, String label, int location, boolean interactable) {
 		super(symbol, label, location, interactable);
 	}
 	
 	public Creeper() {
+		super('C', "Damages within two spaces, kills within 1", 0, true);
 	}
 
-	public int getLocation() {
-		return location;
-	}
-
-	public void setLocation(int setLocation) {
-		location = setLocation;
-	}
-	
-	public boolean getInteractable() { 
-		return interactable;
-	}
 	@Override
 	public void draw() {
 		System.out.print(symbol);
@@ -48,11 +32,14 @@ public class Creeper extends GamePiece {
 		if (playerLocation == this.getLocation() - 1 || playerLocation == this.getLocation() + 1){
 			return InteractionResult.KILL;
 		}
+		if (playerLocation == this.getLocation() - 2 || playerLocation == this.getLocation() + 2){
+			return InteractionResult.HIT;
+		}
 		return InteractionResult.NONE;
 	}
 	
 	@Override
 	public String toString() {
-		return symbol + " - " + label ; 
+		return 'C' + " - Damages within two spaces, kills within 1";
 	}
 }

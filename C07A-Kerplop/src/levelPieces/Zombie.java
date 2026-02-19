@@ -14,31 +14,15 @@ import gameEngine.Moveable;
  * Purpose: defining the zombie class and it's behaviour
  */
 public class Zombie extends GamePiece implements Moveable{
-
-	public static final int DAMAGE = 1;
-	private String label = "can only move left, will hit you if you land on him";
-	private int location;
-	private char symbol = 'Z';
-	private boolean interactable = true;
 	
 	public Zombie(char symbol, String label, int location, boolean interactable) {
 		super(symbol, label, location, interactable);
 	}
 	
 	public Zombie() {
+		super('Z', "can only move left, will hit you if you land on him", 0, true);
 	}
 
-	public int getLocation() {
-		return location;
-	}
-
-	public void setLocation(int setLocation) {
-		location = setLocation;
-	}
-	
-	public boolean getInteractable() { 
-		return interactable;
-	}
 	@Override
 	public void draw() {
 		System.out.print(symbol);
@@ -49,7 +33,7 @@ public class Zombie extends GamePiece implements Moveable{
 		if(this.getLocation() > 0) {
 			gameBoard[this.getLocation()] = null;
 			this.setLocation(this.getLocation() - 1);
-			gameBoard[this.getLocation()-1] = this;
+			gameBoard[this.getLocation()] = this;
 		}
 	}
 	
@@ -64,6 +48,6 @@ public class Zombie extends GamePiece implements Moveable{
 	
 	@Override
 	public String toString() {
-		return symbol + " - " + label ; 
+		return 'Z' + " - Can only move left, will hit you if you land on him"; 
 	}
 }
