@@ -1,0 +1,43 @@
+commit 5d99fac4b8b666d0235ce67f0c3ddceeb8fea230
+Author: Kale <kale_carlson@mines.edu>
+Date:   Thu Feb 19 13:27:51 2026 -0700
+
+    the cat is not a cat anymore
+
+commit 51572b0e560f6632484c2ca56f1dccdbf57bff3d
+Author: strvdr <strydr8@gmail.com>
+Date:   Thu Feb 19 13:24:09 2026 -0700
+
+    This is a test commit to show Kale how to get out of vim commit mode
+
+commit 2eba0d975f5a4a483ab08402b48441b7da31d697
+Author: Kale <kale_carlson@mines.edu>
+Date:   Thu Feb 19 13:21:52 2026 -0700
+
+    made the eyes big
+
+commit 8f8250c00a08c8ede7c7d6fbf7713fd221a89789
+Author: strvdr <strydr8@gmail.com>
+Date:   Thu Feb 19 13:19:44 2026 -0700
+
+    i didn't like the yellow cat
+
+commit 0c668c31dce63941a0196345a35cce28b690f3bb
+Author: Kale <kale_carlson@mines.edu>
+Date:   Thu Feb 19 13:18:45 2026 -0700
+
+    made the cat yellow
+
+commit 7eef9a859f8a032d57aa4e37444bf10c8c8bd43e
+Author: strvdr <strydr8@gmail.com>
+Date:   Thu Feb 19 13:00:08 2026 -0700
+
+    adding drawplay files to shared repo
+
+commit fc220f1b177c3ab8ba5ef90b5b30a0ab1d9ad4f0
+Author: strvdr <strydr8@gmail.com>
+Date:   Thu Feb 19 12:54:27 2026 -0700
+
+    remove personal files from shared repo
+
+
