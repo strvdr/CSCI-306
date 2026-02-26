@@ -64,6 +64,8 @@ public class PublicSafety {
 			}
 		}
 		
+		scanner.close();
+		
 	}
 
 	public void printDetectiveLists() {
