@@ -1,0 +1,3 @@
+1. swallowing any exception within a catch block is bad practice because if the exception occurs then you have no idea which exception happned or if one happened at all
+2. catching the exception class itself is bad practice because you don't know what exception occured implicitly
+3. never log and throw an exception. this will cause more instances of the error message in the log file than expected
