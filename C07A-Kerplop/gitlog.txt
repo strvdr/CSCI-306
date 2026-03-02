@@ -1,0 +1,18 @@
+commit ed3b725980c5ad944ebec5eeb76401e582c8433d
+Author: strvdr <strydr8@gmail.com>
+Date:   Thu Feb 19 10:24:18 2026 -0700
+
+    all junit tests complete, equitable work done by both partners. future git logs will show pushes from both of us as we are now using a shared repo.
+
+commit 657b58657115f764e28090943a5466306053c0fa
+Merge: 8d44b41 77f2e03
+Author: strvdr <strydr8@gmail.com>
+Date:   Thu Feb 19 09:08:13 2026 -0700
+
+    merge
+
+commit 77f2e0363289695324b7a2f8a80954d93c756f31
+Author: strvdr <strydr@strydr.net>
+Date:   Thu Feb 19 07:14:58 2026 -0700
+
+    Kerplop bug fixes after reviewing interfaces
