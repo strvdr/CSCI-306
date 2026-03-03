@@ -1,0 +1,14 @@
+before merge:
+
+<<<<<<< HEAD
+		g2.fillOval(y, x, MOUTH_HEIGHT, MOUTH_WIDTH);
+		g2.setColor(Color.orange);
+=======
+		g2.fillOval(x, y, MOUTH_WIDTH, MOUTH_HEIGHT);
+		g2.setColor(Color.blue);
+>>>>>>> merge2
+
+
+after merge:
+g2.fillOval(y, x, MOUTH_HEIGHT, MOUTH_WIDTH);
+g2.setColor(Color.orange);
